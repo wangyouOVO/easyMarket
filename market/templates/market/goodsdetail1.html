@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情</title>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>编号</th>
+            <th>商品名</th>
+            <th>商品图片</th>
+            
+            <th>分类</th>
+            <th>商品描述</th>
+            <th>定价</th>
+
+        </tr>
+        <tr>
+            <td>{{good.id }}</td>
+            <td>{{good.name }}</td>
+            <td>
+               <img style="height: 50px;width: 50px;" src = "/static/product_images/{{good.img}}">
+           </td>
+            <td>{{good.kinds }}</td>
+            <td>{{good.discribe }}</td>
+            <td>{{good.price }}</td>
+
+
+
+        </tr>
+
+
+
+
+    </table>
+    <a href="/market/addgoodstocart/{{good.id}}">加入购物车</a>
+    <br>
+    <br>
+    <br>
+    <form method="post" action="/market/addgoodstolist/{{good.id}}">
+        <p>
+            购买数量<input type="text" name="sellgoodsnum" value="1">
+        </p>
+        <p>
+            <input type="submit" value="立刻下单">
+        </p>
+    </form>
+    <br>
+    <br>
+    <br>
+    <a href="/market/gotomarket/{{good.from_id}}"> 进入商家店铺</a>
+    <br>
+    <br>
+    <br>
+    <h3>用户评价：</h3>
+    <table border="1">
+        <tr>
+            <th>用户名</th>
+            <th>评价</th>
+            <th>评价时间</th>
+            
+        </tr>
+        {% for comment in detailcomments %}
+        <tr>
+         <td>{{comment.fromname }}</td>
+         <td>{{comment.text }}</td>
+         <td>{{comment.create_time }}</td>
+         
+        </tr>
+ 
+        {% endfor %}
+
+
+
+
+    </table>
+
+
+</body>
+
+</html>

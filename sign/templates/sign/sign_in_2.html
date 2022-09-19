@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>www.bootstrapmb.com - Neumorphism Login Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/sign_in.css' %}">
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <!DOCTYPE html>
+    <html lang="es" dir="ltr">
+
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="static/CSS/sign_in.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="main">
+            <div class="container a-container" id="a-container">
+                <form class="form" id="a-form" method="post" action="/index/register/">
+                    <h2 class="form_title title">创建账号</h2>
+                    <span class="form__span">欢迎来到涛涛严选&nbsp;❤&nbsp;你想买的这里都有</span>
+                    <input class="form__input" type="text" placeholder="请输入用户名" name="name">
+                    <input class="form__input" type="email" placeholder="请输入邮箱" name="email">
+                    <input class="form__input" type="text" placeholder="请输入地址" name="location">
+                    <input class="form__input" type="password" placeholder="请输入密码" name="pwd">
+                    <input class="form__input" type="password" placeholder="请再次输入密码" name="pwd2">
+                    
+                    <div class="form__input checkbox" >
+                        <input type="checkbox" name="remember1" id="customer">
+                        <label for="customer">&nbsp;&nbsp;注册成为商家(加入俺们！）</label>
+                    </div>
+                    <div class="form__input checkbox" >
+                        <input type="checkbox" name="remember" id="remember">
+                        <label for="remember">&nbsp;&nbsp;记住用户名（方便下次直接登陆哦~）</label>
+                    </div>
+                    <input type="submit" class="button" name="" value="立即注册">
+                </form>
+            </div>
+            <div class="container b-container" id="b-container">
+                <form class="form" id="b-form" method="post" action="/index/">
+                    <h2 class="form_title title">登录网站</h2>
+                    <span class="form__span">
+                        ❤请使用邮箱和密码登录~
+                    </span>
+                    <input class="form__input" type="email" placeholder="邮箱" name="eMail">
+                    <input class="form__input" type="password" placeholder="密码" name="pwd">
+                    <div class="form__input checkbox">
+                        <input type="checkbox" name="remember" id="remember2">
+                        <label for="remember2">&nbsp;&nbsp;记住用户名（方便下次直接登陆哦~）</label>
+                    </div>
+                    <input type="submit" value="立即登录" name=" " class="button">
+                </form>
+            </div>
+            <div class="switch" id="switch-cnt">
+                <div class="switch__circle"></div>
+                <div class="switch__circle switch__circle--t"></div>
+                <div class="switch__container" id="switch-c1">
+                    <h2 class="switch__title title">{% if messages %}
+                        {% for message in messages %}
+                        {{ message }}
+                        {% endfor %}
+                        {% else %} 欢迎回来 !{% endif %}</h2>
+                    <p class="switch__description description">交易最新好物，请登录您的个人信息</p>
+                    <button class="switch__button button switch-btn">立即登录</button>
+                </div>
+                <div class="switch__container is-hidden" id="switch-c2">
+                    <h2 class="switch__title title">你好朋友 !</h2>
+                    <p class="switch__description description">注册您的个人信息，涛涛严选大家庭！</p>
+                    <button class="switch__button button switch-btn">立即注册</button>
+                </div>
+
+            </div>
+        </div>
+        <script src="/static/js/sign_in.js"></script>
+    </body>
+
+    </html>
+    <!-- partial -->
+    <script src="/static/js/sign_in.js"></script>
+</body>
+
+</html>

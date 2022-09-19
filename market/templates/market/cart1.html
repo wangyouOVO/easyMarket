@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+</head>
+
+<a href="../../market/recommend">推荐</a>
+<a href="../../market/food">美食</a>
+<a href="../../market/cloths">服装</a>
+<a href="../../market/eproduct">数码</a>
+<a href="../../market/cart">购物车</a>
+<h1>{{user.name}} 的购物记录</h1>
+
+<body>
+    <h2>{{user.name}} 的购物车</h1>
+        <table border="1">
+            <tr>
+                <th>编号</th>
+                <th>商品名</th>
+                <th>商品图片</th>
+                
+                <th>分类</th>
+                <th>描述</th>
+                <th>定价</th>
+                <th>添加时间</th>
+
+            </tr>
+            {% for good in detailgoods0 %}
+            <tr>
+                <td>{{good.id }}</td>
+                <td>{{good.name }}</td>
+                <td>
+                   <img style="height: 50px;width: 50px;" src = "/static/product_images/{{good.img}}">
+               </td>
+                <td>{{good.kinds }}</td>
+                <td>{{good.discribe }}</td>
+                <td>{{good.price }}</td>
+                <td>{{good.createtime }}</td>
+
+                <td>
+                    <a href="/market/goodsdetail/{{good.id}}">去下单！</a>
+                    <a href="/market/removefromcart/{{good.sellid}}">移出购物车</a>
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+        <h2>已下单，待发货</h1>
+            <table border="1">
+                <tr>
+                    <th>编号</th>
+                    <th>商品名</th>
+                    <th>商品图片</th>
+                   
+                    <th>分类</th>
+                    <th>描述</th>
+                    <th>定价</th>
+                    <th>数量</th>
+                    <th>下单时间</th>
+
+                </tr>
+                {% for good in detailgoods1 %}
+                <tr>
+                    <td>{{good.id }}</td>
+                    <td>{{good.name }}</td> 
+                    <td>
+                       <img style="height: 50px;width: 50px;" src = "/static/product_images/{{good.img}}">
+                   </td>
+                    <td>{{good.kinds }}</td>
+                    <td>{{good.discribe }}</td>
+                    <td>{{good.price }}</td>
+                    <td>{{good.num }}</td>
+                    <td>{{good.createtime }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+            <h2>已发货，待签收</h1>
+                <table border="1">
+                    <tr>
+                        <th>编号</th>
+                        <th>商品名</th>
+                        <th>商品图片</th>
+                        
+                        <th>分类</th>
+                        <th>描述</th>
+                        <th>定价</th>
+                        <th>数量</th>
+                        <th>发货时间</th>
+
+                    </tr>
+                    {% for good in detailgoods2 %}
+                    <tr>
+                        <td>{{good.id }}</td>
+                        <td>{{good.name }}</td>
+                        <td>
+                           <img style="height: 50px;width: 50px;" src = "/static/product_images/{{good.img}}">
+                       </td>
+                        <td>{{good.kinds }}</td>
+                        <td>{{good.discribe }}</td>
+                        <td>{{good.price }}</td>
+                        <td>{{good.num }}</td>
+                        <td>{{good.edit_time}}</td>
+                        <td>
+                            <a href="/market/signfor/{{good.sellid}}">确定签收</a>
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </table>
+
+                <h2>全部已签收货物</h1>
+                    <table border="1">
+                        <tr>
+                            <th>编号</th>
+                            <th>商品名</th>
+                            <th>商品图片</th>
+                            
+                            <th>分类</th>
+                            <th>描述</th>
+                            <th>定价</th>
+                            <th>数量</th>
+                            <th>签收时间</th>
+                        </tr>
+                        {% for good in detailgoods3 %}
+                        <tr>
+                            <td>{{good.id }}</td>
+                            <td>{{good.name }}</td>
+                            <td>
+                               <img style="height: 50px;width: 50px;" src = "/static/product_images/{{good.img}}">
+                           </td>
+                            <td>{{good.kinds }}</td>
+                            <td>{{good.discribe }}</td>
+                            <td>{{good.price }}</td>
+                            <td>{{good.num }}</td>
+                            <td>{{good.edit_time}}</td>
+                            <td>
+
+                                <a href="/market/removefromcart/{{good.sellid}}">删除记录</a>
+                                <a href="/market/addcomments/{{good.id}}">添加评论</a>
+                            </td>
+                            
+                        </tr>
+
+                        {% endfor %}
+
+                    </table>
+
+
+</body>
+<div>
+    <a href="../../index/delete/">退出登陆</a>
+</div>
+
+</html>

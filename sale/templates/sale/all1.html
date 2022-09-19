@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单管理</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            欢迎 商家{{user.name}} !
+
+        </div>
+
+    </div>
+
+    <div>
+        <div>
+            <a href="../../sale/edit/">编辑信息</a>
+
+        </div>
+        <div>
+            <a href="../../sale/goods/">添加货物</a>
+        </div>
+
+        <div>
+            <a href="../../sale/all/">所有订单</a>
+        </div>
+        <div>
+            <a href="../../index/delete/">退出登陆</a>
+        </div>
+    </div>
+
+
+    <h2>已下单，未发货</h1>
+        <table border="1">
+            <tr>
+                <th>编号</th>
+                <th>商品名</th>
+                <th>商品图片</th>
+
+                <th>分类</th>
+
+                <th>描述</th>
+                <th>定价</th>
+                <th>数量</th>
+                <th>下单时间</th>
+
+            </tr>
+            {% for good in detailgoods1 %}
+            <tr>
+                <td>{{good.id }}</td>
+                <td>{{good.name }}</td>
+                <td>
+                    <img style="height: 50px;width: 50px;" src="/static/product_images/{{good.img}}">
+                </td>
+                <td>{{good.kinds }}</td>
+                <td>{{good.discribe }}</td>
+                <td>{{good.price }}</td>
+                <td>{{good.num }}</td>
+                <td>{{good.create_time }}</td>
+                <td>
+                    <a href="/sale/send/{{good.sellid}}">立刻发货</a>
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        <h2>已发货，待用户签收</h1>
+            <table border="1">
+                <tr>
+                    <th>编号</th>
+                    <th>商品名</th>
+                    <th>商品图片</th>
+
+                    <th>分类</th>
+                    <th>描述</th>
+                    <th>定价</th>
+                    <th>数量</th>
+                    <th>发货时间</th>
+
+                </tr>
+                {% for good in detailgoods2 %}
+                <tr>
+                    <td>{{good.id }}</td>
+                    <td>{{good.name }}</td>
+                    <td>
+                        <img style="height: 50px;width: 50px;" src="/static/product_images/{{good.img}}">
+                    </td>
+                    <td>{{good.kinds }}</td>
+                    <td>{{good.discribe }}</td>
+                    <td>{{good.price }}</td>
+                    <td>{{good.num }}</td>
+                    <td>{{good.edit_time}}</td>
+
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+            <h2>全部已签收货物</h1>
+                <table border="1">
+                    <tr>
+                        <th>编号</th>
+                        <th>商品名</th>
+                        <th>商品图片</th>
+
+                        <th>分类</th>
+                        <th>描述</th>
+                        <th>定价</th>
+                        <th>数量</th>
+                        <th>签收时间</th>
+                    </tr>
+                    {% for good in detailgoods3 %}
+                    <tr>
+                        <td>{{good.id }}</td>
+                        <td>{{good.name }}</td>
+                        <td>
+                            <img style="height: 50px;width: 50px;" src="/static/product_images/{{good.img}}">
+                        </td>
+                        <td>{{good.kinds }}</td>
+                        <td>{{good.discribe }}</td>
+                        <td>{{good.price }}</td>
+                        <td>{{good.num }}</td>
+                        <td>{{good.edit_time}}</td>
+                        <a href="/market/removefromcart/{{good.sellid}}">删除记录</a>
+                    </tr>
+
+                    {% endfor %}
+
+                </table>
+
+                </table>
+                <a href="../../sale/addgoods">上架货品</a>
+                <a href="../../index">回到主页</a>
+
+</body>
+
+</html>

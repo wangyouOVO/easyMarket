@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Details | 详情</title>
+    <link rel="stylesheet" href="/static/CSS/goodsdetail.css" />
+    <link rel="stylesheet" href="/static/CSS/font-awesome/css/font-awesome.min.css" />
+  </head>
+  <body>
+    <div class="good-container">
+        <div class="good-img"><img src="/static/product_images/{{good.img}}" alt="" /></div>
+      <div class="good-detail">
+        <div class="good-name">{{good.name}}</div>
+        <div class="good-discription">{{good.discribe}}</div>
+        <div class="good-price">秒杀价: {{good.price}}</div>
+        <div class="buy-container">
+          <a href="/market/gotomarket/{{good.from_id}}" class="shop">
+            <img src="/static/icon_images/shop.png" alt="" />
+            <p>去往商家店铺</p>
+          </a>
+          <a class="chart" href="/market/addgoodstocart/{{good.id}}">
+            <img src="/static/icon_images/chart.png" alt="" />
+            <p>添加至购物车</p>
+          </a>
+          <form method="post" action="/market/addgoodstolist/{{good.id}}">
+          <div class="number">
+            <img src="/static/icon_images/pen.png" alt="" />
+            <p>一共购买：</p>
+            <input type="text" name="sellgoodsnum" value="1"/>
+            <p>件商品</p>
+          </div>
+          <div class="order">
+            <img src="/static/icon_images/order.png" alt="" />
+            <input type="submit" value="立刻下单">
+          </div>
+            </form>
+        </div>
+        <div class="sun-img">
+          <img src="/static/icon_images/sun.png" alt="" />
+        </div>
+        <div class="goback" onclick="window.history.go(-1)"></div>
+        <a class="gochart" href="/market/cart">查看购物车</a>
+      </div>
+    </div>
+    {% for comment in detailcomments %}
+    <div class="comment-container">
+      <div class="comment-card">
+        <div class="username">用户{{comment.fromname }}说：</div>
+        <div class="comment">{{comment.text }}</div>
+        <div class="date">评论时间：{{comment.create_time }}</div>
+      </div>
+    </div>
+  {% endfor %}
+   <script>
+      const chart = document.querySelector(".chart");
+      const chart_p = document.querySelector("#chart_p");
+      chart.addEventListener("click", function () {
+        chart.classList.add("chart-done");
+        chart_p.innerHTML = " ";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment | 评价</title>
+    <link rel="stylesheet" href="/static/CSS/comments.css">
+    <link rel="stylesheet" href="/static/CSS/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+    <p class="comment-title">评价</p>
+    <div class="good-container">
+        <div class="good-img"><img src = "/static/product_images/{{good.img}}" alt="" /></div>
+        <div class="good-detail">
+          <div class="good-name">{{good.name}}</div>
+          <div class="good-discription">{{good.discribe}}</div>
+          <div class="good-price">{{good.price}}</div>
+          <div class="comment-container">
+              <p class="saysome">想说什么都可以说...</p>
+              <form method="post" action="/market/addcomments/{{good.id}}">
+                  <p>
+                      <textarea type="text" name="text"></textarea>
+                  </p>
+                  <p>
+                      <input type="submit" value="发布评论">
+                  </p>
+              </form>
+
+        </div>
+        <a href="/market/cart" class="goback"></a>
+          <img src="/static/icon_images/windmill.png" alt="" class="windmill">
+      </div>
+</body>
+</html>

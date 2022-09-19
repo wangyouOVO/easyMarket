@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order | 订单</title>
+    <link rel="stylesheet" href="/static/CSS/all.css" />
+    <link rel="stylesheet" href="/static/CSS/font-awesome/css/font-awesome.min.css" />
+  </head>
+  <style>
+    .navbar-link .clothes-link::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      width: 135px;
+      height: 10px;
+      box-shadow: 0 2px 10px var(--main-color),
+        0 10px 40px rgba(180, 31, 31, 0.6);
+    }
+  </style>
+  <body>
+    <!-- 头部导航栏，固定定位 -->
+    <div class="navbar-container boxshadow">
+      <!-- 欢迎商家字样 -->
+      <div class="welcome-user">欢迎商家🔈：{{user.name}}</div>
+      <!-- 链接跳转导航栏 -->
+      <div class="navbar-link">
+        <div class="rec-link"><a href="../../sale/goods/"> 所有货物</a></div>
+        <div class="food-link"><a href="../../sale/addgoods"> 添加商品</a></div>
+        <div class="clothes-link"><a href="../../sale/all/"> 全部订单</a></div>
+      </div>
+      <div class="logout"><a href="../../index/delete/"> 退出登录</a></div>
+    </div>
+    <div class="order-container">
+        <div class="step-one">
+            <p>已下单 未发货</p>
+             {% for good in detailgoods1 %}
+            <div class="card">
+                <div class="img-container">
+                    <img src="/static/product_images/{{good.img}}" alt="">
+                    <a href="/sale/send/{{good.sellid}}">立即发货</a>
+                </div>
+                <div class="details">
+                    <div class="name">{{good.name }}</div>
+                    <div class="sort">{{good.kinds }}</div>
+                    <div class="discribe">{{good.discribe }}</div>
+                    <div class="price">定价￥：{{good.price }}</div>
+                    <div class="number">数量：{{good.num }}</div>
+                    <div class="time">下单时间：{{good.create_time }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="step-two">
+            <p>已下单 未签收</p>
+            {% for good in detailgoods2 %}
+            <div class="card">
+                <div class="img-container">
+                    <img src="/static/product_images/{{good.img}}" alt="">
+                    <a href="#">等待用户签收...</a>
+                </div>
+                <div class="details">
+                    <div class="name">{{good.name }}</div>
+                    <div class="sort">{{good.kinds }}</div>
+                    <div class="discribe">{{good.discribe }}</div>
+                    <div class="price">定价￥：{{good.price }}</div>
+                    <div class="number">数量：{{good.num }}</div>
+                    <div class="time">发货时间：{{good.edit_time}}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="step-three">
+            <p>交易成功货品</p>
+            {% for good in detailgoods3 %}
+            <div class="card">
+                <div class="img-container">
+                    <img src="/static/product_images/{{good.img}}" alt="">
+                    <a href="/market/removefromcart/{{good.sellid}}">删除记录</a>
+                </div>
+                <div class="details">
+                    <div class="name">{{good.name }}</div>
+                    <div class="sort">{{good.kinds }}</div>
+                    <div class="discribe">{{good.discribe }}</div>
+                    <div class="price">定价￥：{{good.price }}</div>
+                    <div class="number">数量：{{good.num }}</div>
+                    <div class="time">签收时间：{{good.edit_time}}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+  </body>
+</html>

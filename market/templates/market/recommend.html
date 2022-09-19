@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recommend | 推荐</title>
+    <link rel="stylesheet" href="/static/CSS/recommend.css" />
+    <!--  图标  -->
+    <link rel="stylesheet" href="/static/CSS/font-awesome/css/font-awesome.min.css">
+    <!--  轮播图  -->
+    <link rel="stylesheet" href="/static/CSS/swiper-bundle.min.css">
+  </head>
+  <style>
+    .navbar-link .rec-link::before{
+        content: '';
+        position: absolute;
+        top: -10px;
+        width: 100px;
+        height: 10px;
+        box-shadow:0 2px 10px var(--main-color),
+        0 10px 40px rgba(180, 31, 31,0.6);
+}
+  </style>
+  <body>
+    <!-- 头部导航栏，fix定位 -->
+    <div class="navbar-container boxshadow">
+      <!-- 欢迎商家字样 -->
+      <div class="welcome-user">欢迎 🔈：{{user.name}}</div>
+      <!-- 链接跳转导航栏 -->
+      <div class="navbar-link">
+        <div class="rec-link"><a href="../../market/recommend"> 推荐</a></div>
+        <div class="food-link"><a href="../../market/food"> 食品</a></div>
+        <div class="clothes-link"><a href="../../market/cloths"> 服装</a></div>
+        <div class="digit-link"><a href="../../market/eproduct"> 数码</a></div>
+        <div class="chart-link"><a href="../../market/cart"> 购物车</a></div>
+      </div>
+      <div class="logout"><a href="../../index/delete/"> 退出登陆</a></div>
+    </div>
+<!--  轮播图  -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        {% for good in goods %}
+        <div class="swiper-slide">
+          <a href="#"><img src="/static/product_images/{{good.img}}" alt=""></a>
+          <p>{{good.name}}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <!-- 推荐商品列表 -->
+    <div class="good-container">
+      {% for good in goods %}
+      <div class="good-card">
+        <div class="good-img"><img src="/static/product_images/{{good.img}}" alt="" /></div>
+        <div class="good-name">{{good.name}}</div>
+        <div class="good-comment">{{good.discribe}}</div>
+        <div class="good-price">￥{{good.price}}</div>
+        <div class="good-detail"><a href="/market/goodsdetail/{{good.id}}"> &nbsp;商品详情</a></div>
+      </div>
+       {% endfor %}
+    </div>
+    <!-- 广告 -->
+    <div class="adv-container">
+      <div class="adv-message">钱找不到地方花？来涛涛严选就对了！</div>
+      <div class="adv-cardcontainer">
+        <div class="adv-card">
+          <div class="adv-img"><img src="/static/icon_images/trunk.png" alt=""></div>
+          <div class="adv-detail">
+            <div class="adv-title">运载火箭专人专送🙂</div>
+            <div class="adv-content">
+              想吃辣条封校了买不到？别急！运载火箭会经过高温消杀后空投到您的目的地址
+            </div>
+          </div>
+        </div>
+        <div class="adv-card">
+          <div class="adv-img"><img src="/static/icon_images/money.png" alt=""></div>
+          <div class="adv-detail">
+            <div class="adv-title">无中间商赚差价💴</div>
+            <div class="adv-content">
+              涛涛严选，打通您和商品好物的最后一公里。原厂直出价，同嫂无欺，直播间都得从我们这儿进货。
+            </div>
+          </div>
+        </div>
+        <div class="adv-card">
+          <div class="adv-img"><img src="/static/icon_images/chat.png" alt=""></div>
+          <div class="adv-detail">
+            <div class="adv-title">欢迎找我们聊天📞</div>
+            <div class="adv-content">
+              如您在购物期间遇到任何问题，我们的后台客服将24小时全天守护在您身边。（帅哥优先）
+            </div>
+          </div>
+        </div>
+      </div></div>
+      <!-- 页尾 -->
+      <div class="foot-container">
+        <div class="foot-contactus">
+          <div class="foot-contactus-title">广告位招租</div>
+          <div class="foot-contactus-content">微信：Qpicpicxxz</div>
+        </div>
+        <div class="foot-copyright">
+          ©2022 CopyRight TaoSelect All rights reserved.
+        </div>
+        <div class="foot-content">合作伙伴&nbsp; 上海大学通信学院&nbsp; |&nbsp; 上海教育超市&nbsp; | &nbsp;罗森&nbsp; | &nbsp;好特卖&nbsp;| &nbsp;海伦斯小酒馆 </div>
+      </div>
+    <script src="/static/CSS/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        centeredSlides: true,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+          delay: 1500,
+          stopOnLastSlide: false,
+          disableOnInteracion: true,
+        },
+      });
+    </script>
+  </body>
+</html>

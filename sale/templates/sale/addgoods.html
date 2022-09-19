@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add | 上架</title>
+    <link rel="stylesheet" href="/static/CSS/addgoods.css" />
+    <link rel="stylesheet" href="/static/CSS/font-awesome/css/font-awesome.min.css" />
+  </head>
+  <style>
+    .navbar-link .food-link::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      width: 135px;
+      height: 10px;
+      box-shadow: 0 2px 10px var(--main-color),
+        0 10px 40px rgba(180, 31, 31, 0.6);
+    }
+  </style>
+  <body>
+    <!-- 头部导航栏，固定定位 -->
+    <div class="navbar-container boxshadow">
+      <!-- 欢迎商家字样 -->
+      <div class="welcome-user">欢迎商家🔈：{{user.name}}</div>
+      <!-- 链接跳转导航栏 -->
+      <div class="navbar-link">
+        <div class="rec-link"><a href="../../sale/goods/"> 所有货物</a></div>
+        <div class="food-link"><a href="../../sale/addgoods"> 添加商品</a></div>
+        <div class="clothes-link"><a href="../../sale/all/"> 全部订单</a></div>
+      </div>
+      <div class="logout"><a href="../../index/delete/"> 退出登录</a></div>
+    </div>
+    <!-- 添加货品容器 -->
+    <form
+      action="../../sale/addgoods/"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="add-container">
+        <div class="good-name">
+          <p>商品名称</p>
+          <textarea type="text" name="name">{{good.name}}</textarea>
+        </div>
+        <div class="good-sort">
+          <p>商品分类</p>
+          <div class="sort-container">
+            <input type="radio" name="kinds" value="食物" />
+            <span>食品</span>
+            <br>
+            <input type="radio" name="kinds" value="服装" />
+            <span>服装</span>
+            <br>
+            <input type="radio" name="kinds" value="数码" />
+            <span>数码</span>
+          </div>
+        </div>
+        <div class="good-img">
+          <p>商品图片</p>
+          <input type="file" name="img" />
+        </div>
+        <div class="good-price">
+          <p>商品定价</p>
+          <textarea type="text" name="price">{{good.price}}</textarea>
+        </div>
+        <div class="good-discribe">
+          <p>商品描述</p>
+          <textarea type="text" name="desc">{{good.discribe}}</textarea>
+        </div>
+        <div class="good-rec">
+          <input type="checkbox" name="remember" />
+          <span>是否在推荐页陈列</span>
+        </div>
+        <div class="upload">
+            <input type="submit" value="添加商品">
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

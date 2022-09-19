@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上架货品</title>
+</head>
+<body>
+    <div>
+        <div>
+           欢迎 商家{{user.name}} !
+            
+        </div>
+       
+    </div>
+
+    <div>
+        <div>
+            <a href="../../sale/edit/">编辑信息</a>
+            
+        </div>
+        <div>
+            <a href="../../sale/goods/">添加货物</a>
+        </div>
+       
+        <div>
+            <a href="../../sale/all/">所有订单</a>
+        </div>
+        <div>
+            <a href="../../index/delete/">退出登陆</a>
+        </div>
+    </div>
+    <br>
+    <br>
+    
+    <table border="1">
+        <tr>
+             <th>编号</th>
+             <th>商品名</th>
+             <th>商品图片</th>
+             <th>分类</th>
+             <th>定价</th>
+             <th>创建时间</th>
+             <th>更新时间</th>
+        </tr>
+        {% for good in goods %}
+        <tr>
+         <td>{{good.id }}</td>
+         <td>{{good.name }}</td>
+         <td>
+             <img style="height: 50px;width: 50px;" src = "/static/product_images/{{good.img}}">
+         </td>
+         <td>{{good.kinds }}</td>
+         <td>{{good.price }}</td>
+         <td>{{good.create_time }}</td>
+         <td>{{good.edit_time }}</td>
+
+         <td>
+             <a href="/sale/updata/{{good.id}}">更新</a>
+             <a href="/sale/delete/{{good.id}}">删除</a>
+         </td>
+        </tr>
+ 
+        {% endfor %}
+ 
+    </table>
+    <a href="../../sale/addgoods">上架货品</a>
+    <a href="../../index">回到主页</a>
+    
+</body>
+</html>

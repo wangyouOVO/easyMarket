@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>主页</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/CSS/vendor.css">
+    <link rel="stylesheet" href="/static/CSS/style.css">
+    <link rel="stylesheet" href="/static/CSS/responsive.css">
+
+</head>
+
+<body>
+    <!-- navbar start -->
+    <div class="navbar-area">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container nav-container">
+                <div class="responsive-mobile-menu">
+                    <button class="menu toggle-btn d-block d-lg-none" data-target="#themefie_main_menu"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-left"></span>
+                        <span class="icon-right"></span>
+                    </button>
+                </div>
+                <div class="logo">
+                    <a href="" class="font-weight:bolder">欢迎 {{user.name}} !</a>
+                </div>
+                <div class="collapse navbar-collapse" id="themefie_main_menu">
+                    <ul class="barselect">
+                        <ul class="bartitle">
+                            <a href="../../market/recommend">推荐&nbsp;&nbsp;</a>
+                        </ul>
+                        <ul class="bartitle">
+                            <a href="../../market/food">食品&nbsp;&nbsp;&nbsp;</a>
+                        </ul>
+                        <ul class="bartitle">
+                            <a href="../../market/cloths">&nbsp;服装&nbsp;&nbsp;</a>
+                        </ul>
+                        <ul class="bartitle">
+                            <a href="../../market/eproduct">&nbsp;&nbsp;数码&nbsp;&nbsp;</a>
+                        </ul>
+                        <ul class="bartitle">
+                            <a href="../../market/cart">&nbsp;&nbsp;购物车&nbsp;</a>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- navbar end -->
+    <section class="product-area pd-top-66 pd-bottom-80">
+        <div class="container">
+<!--            <div class="row">-->
+<!--                <div class="col-lg-12">-->
+<!--                    <div class="section-title text-center">-->
+<!--                        <h2 class="title">Best Collection</h2>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                 <div class="col-lg-12">-->
+<!--                    <div class="isotope-filters product-isotope-btn text-center" style="font-size: 20px;">-->
+<!--                        <a href="../sale/edit/">编辑信息/</a>-->
+<!--                        <a href="../sale/goods/">购物车/</a>-->
+<!--                        <a href="../sale/order/">未完成订单/</a>-->
+<!--                        <a href="../sale/all/">所有订单/</a>-->
+<!--                        <a href="../index/delete/">退出登录/</a>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--start-project-section-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center">
+                        <h2 class="title">Best Collection</h2>
+                    </div>
+                </div>
+                 <div class="col-lg-12">
+            <div class="gallery-section">
+                <div class="gallery-isotope row">
+                    <div class="gallery-sizer col-1"></div>
+                    <!-- gallery item start here -->
+                    {% for good in goods %}
+                    <div class="gallery-item col-xl-3 col-lg-4 col-sm-6 ">
+                        <div class="product-single-wrap">
+                            <div class="thumb">
+                                <img src="/static/product_images/{{good.img}}" alt="image">
+                            </div>
+                            <div class="product-details">
+                                <h4>{{good.name}}</h4>
+                                <p>{{good.discribe}}</p>
+                                <p>￥{{good.price}}</p>
+                                <a href="/market/goodsdetail/{{good.id}}"><span class="fordetail">查看商品详情</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="gallery-item col-xl-3 col-lg-4 col-sm-6 ">
+                        <div class="product-single-wrap">
+                            <div class="thumb">
+                                <img src="/static/img/product/2.png" alt="image">
+                            </div>
+                            <div class="product-details">
+                                <h6><a href="#">乐事薯片</a></h6>
+                                <p>￥6.5</p>
+                            </div>
+                        </div>
+                    </div>
+<!--                    <div class="gallery-item col-xl-3 col-lg-4 col-sm-6 cat-3 cat-2 cat-5 cat-7 cat-6">-->
+<!--                        <div class="product-single-wrap">-->
+<!--                            <div class="thumb">-->
+<!--                                <img src="/static/img/product/3.png" alt="image">-->
+<!--                            </div>-->
+<!--                            <div class="product-details">-->
+<!--                                <h6><a href="#">北面冲锋衣</a></h6>-->
+<!--                                <p>￥1399</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="gallery-item col-xl-3 col-lg-4 col-sm-6 cat-3 cat-4 cat-1 cat-8">-->
+<!--                        <div class="product-single-wrap">-->
+<!--                            <div class="thumb">-->
+<!--                                <img src="/static/img/product/4.png" alt="image">-->
+<!--                            </div>-->
+<!--                            <div class="product-details">-->
+<!--                                <h6><a href="#">旺仔牛奶</a></h6>-->
+<!--                                <p>￥49</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="gallery-item col-xl-3 col-lg-4 col-sm-6 cat-2 cat-1 cat-5 cat-8">-->
+<!--                        <div class="product-single-wrap">-->
+<!--                            <div class="thumb">-->
+<!--                                <img src="/static/img/product/5.png" alt="image">-->
+<!--                            </div>-->
+<!--                            <div class="product-details">-->
+<!--                                <h6><a href="#">佳能 R6 微单</a></h6>-->
+<!--                                <p>￥15999起</p></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="gallery-item col-xl-3 col-lg-4 col-sm-6 cat-1 cat-4 cat-2 cat-8">-->
+<!--                        <div class="product-single-wrap">-->
+<!--                            <div class="thumb">-->
+<!--                                <img src="/static/img/product/6.png" alt="image">-->
+<!--                            </div>-->
+<!--                            <div class="product-details">-->
+<!--                                <h6><a href="#">Supreme夹克</a></h6>-->
+<!--                                <p>￥3999</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="gallery-item col-xl-3 col-lg-4 col-sm-6 cat-1 cat-4 cat-2 cat-8">-->
+<!--                        <div class="product-single-wrap">-->
+<!--                            <div class="thumb">-->
+<!--                                <img src="/static/img/product/7.png" alt="image">-->
+<!--                            </div>-->
+<!--                            <div class="product-details">-->
+<!--                                <h6><a href="#">iphone 13 pro 苍岭绿</a></h6>-->
+<!--                                <p>￥8999起</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="gallery-item col-xl-3 col-lg-4 col-sm-6 cat-1 cat-4 cat-2 cat-7">-->
+<!--                        <div class="product-single-wrap">-->
+<!--                            <div class="thumb">-->
+<!--                                <img src="/static/img/product/8.png" alt="image">-->
+<!--                            </div>-->
+<!--                            <div class="product-details">-->
+<!--                                <h6><a href="#">牛羊配</a></h6>-->
+<!--                                <p>￥0.5</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+            </div>
+<!--    <section class="product-area pd-top-66 pd-bottom-80">-->
+<!--    <div class="container">-->
+<!--    <table border="1">-->
+<!--        <tr>-->
+<!--            <th>编号</th>-->
+<!--            <th>商品名</th>-->
+<!--            <th>商品图片</th>-->
+
+<!--            <th>分类</th>-->
+<!--            <th>描述</th>-->
+<!--            <th>定价</th>-->
+
+<!--        </tr>-->
+<!--        {% for good in goods %}-->
+<!--        <tr>-->
+<!--            <td>{{good.id }}</td>-->
+<!--            <td>{{good.name }}</td>-->
+<!--            <td>-->
+<!--                <img style="height: 50px;width: 50px;" src="/static/product_images/{{good.img}}">-->
+<!--            </td>-->
+<!--            <td>{{good.kinds }}</td>-->
+<!--            <td>{{good.discribe }}</td>-->
+<!--            <td>{{good.price }}</td>-->
+
+
+<!--            <td>-->
+<!--                <a href="/market/goodsdetail/{{good.id}}">查看详情</a>-->
+<!--            </td>-->
+<!--        </tr>-->
+
+<!--        {% endfor %}-->
+
+<!--    </table>-->
+            <!-- project section End -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <a class="btn btn-border" href="#">点击查看所有好物<i class="fa fa-redo-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Service-Area Start-->
+    <section class="service-area bg-grey pd-top-66 pd-bottom-50">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="offer-wrap text-center">
+                        <h2>钱找不到地方花？来涛涛严选就对了！</h2>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-service-wrap">
+                        <div class="media">
+                            <div class="thumb">
+                                <img src="/static/img/icon/truck.png" alt="img">
+                            </div>
+                            <div class="media-body">
+                                <h6>运载火箭专人专送🙂</h6>
+                                <p style="font-size: 20px;">想吃辣条封校了买不到？别急！运载火箭会经过高温消杀后空投到您的目的地址</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-service-wrap">
+                        <div class="media">
+                            <div class="thumb">
+                                <img src="/static/img/icon/like.png" alt="img">
+                            </div>
+                            <div class="media-body">
+                                <h6>无中间商赚差价💴</h6>
+                                <p style="font-size: 20px;">涛涛严选，打通您和商品好物的最后一公里。原厂直出价，同嫂无欺，直播间都得从我们这儿进货。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-service-wrap">
+                        <div class="media">
+                            <div class="thumb">
+                                <img src="/static/img/icon/phone-alt.png" alt="img">
+                            </div>
+                            <div class="media-body">
+                                <h6>欢迎找我们聊天📞</h6>
+                                <p style="font-size: 20px;">如您在购物期间遇到任何问题，我们的后台客服将24小时全天守护在您身边。（帅哥优先）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer area start -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="footer-widget widget">
+                        <p>涛涛严选</p>
+                        <p>没钱了，就来这儿花！</p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <div class="footer-widget widget widget_link">
+                        <h4 class="widget-title">关于我们</h4>
+                        <ul>
+                            <p style="font-size: 25px;">邮箱：Qpicpicxxz@outlook.com</p>
+                            <p style="font-size: 25px;">手机：+8618140015360</p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer area end -->
+
+    <!--Footer bottom-->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 align-self-center">
+                    <div class="copyright-area">
+                        <p>©2022 CopyRight TaoSelect All rights <a href="http://www.shu.edu.cn">reserved</a>. </p>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="payment-area text-lg-right">
+                        <ul>
+                            <li><img src="/static/img/payment/1.png" alt="img"></a></li>
+                            <li><img src="/static/img/payment/2.png" alt="img"></a></li>
+                            <li><img src="/static/img/payment/3.png" alt="img"></a></li>
+                            <li><img src="/static/img/payment/1.png" alt="img"></a></li>
+                            <li><img src="/static/img/payment/2.png" alt="img"></a></li>
+                            <li><img src="/static/img/payment/3.png" alt="img"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Footer bottom-->
+
+    <!-- back to top area start -->
+    <div class="back-to-top">
+        <span class="back-top"><i class="la la-arrow-up"></i></span>
+    </div>
+    <!-- back to top area end -->
+
+
+    <!-- all plugins here -->
+    <script src="/static/js/vendor.js"></script>
+    <!-- main js  -->
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>

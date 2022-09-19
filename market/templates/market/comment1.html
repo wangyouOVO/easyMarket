@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情</title>
+</head>
+
+<body>
+<a href="/market/cart">返回购物车</a>
+    <table border="1">
+        <tr>
+            <th>编号</th>
+            <th>商品名</th>
+            <th>商品图片</th>
+           
+            <th>分类</th>
+            <th>商品描述</th>
+            <th>定价</th>
+
+        </tr>
+        <tr>
+            <td>{{good.id }}</td>
+            <td>{{good.name }}</td> 
+            <td>
+               <img style="height: 50px;width: 50px;" src = "/static/product_images/{{good.img}}">
+           </td>
+            <td>{{good.kinds }}</td>
+            <td>{{good.discribe }}</td>
+            <td>{{good.price }}</td>
+
+
+
+        </tr>
+
+
+
+
+    </table>
+    
+    <br>
+    <br>
+    <br>
+    <form method="post" action="/market/addcomments/{{good.id}}">
+        <p>
+<!--            评价<input type="text" name="text" placeholder="可在此评价！">-->
+            <textarea name="text">可在此评价！</textarea>
+        </p>
+        <p>
+            <input type="submit" value="发送评论" >
+        </p>
+    </form>
+   
+
+
+</body>
+
+</html>

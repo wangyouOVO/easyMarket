@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop | 店铺</title>
+    <link rel="stylesheet" href="/static/CSS/shop.css" />
+    <!--  图标  -->
+    <link rel="stylesheet" href="/static/CSS/font-awesome/css/font-awesome.min.css">
+  </head>
+  <body>
+    <!-- 头部导航栏，固定定位 -->
+    <div class="navbar-container boxshadow">
+      <!-- 欢迎商家字样 -->
+      <div class="welcome-user">欢迎来到{{user.name}}的店铺</div>
+      <div class="goback" onclick="window.history.go(-1)">返回详情</div>
+      <div class="gohome"><a href="../../market/recommend">返回首页</a></div>
+      <div class="logout"><a href="../../index/delete/"> 退出登录</a></div>
+    </div>
+    <!-- 推荐商品列表 -->
+    <div class="good-container">
+      {% for good in goods %}
+      <div class="good-card">
+        <div class="good-img"><img src="/static/product_images/{{good.img}}" alt="" /></div>
+        <div class="good-name">{{good.name }}</div>
+        <div class="good-comment">{{good.discribe }}</div>
+        <div class="good-price">￥{{good.price }}</div>
+        <div class="good-detail"><a href="/market/goodsdetail/{{good.id}}">&nbsp;&nbsp;商品详情</a></div>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goods | 货品</title>
+    <link rel="stylesheet" href="/static/CSS/goods.css" />
+    <link rel="stylesheet" href="/static/CSS/font-awesome/css/font-awesome.min.css" />
+  </head>
+  <style>
+    .navbar-link .rec-link::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      width: 135px;
+      height: 10px;
+      box-shadow: 0 2px 10px var(--main-color),
+        0 10px 40px rgba(180, 31, 31, 0.6);
+    }
+  </style>
+  <body>
+    <!-- 头部导航栏，固定定位 -->
+    <div class="navbar-container boxshadow">
+      <!-- 欢迎商家字样 -->
+      <div class="welcome-user">欢迎商家🔈：{{user.name}}</div>
+      <!-- 链接跳转导航栏 -->
+      <div class="navbar-link">
+        <div class="rec-link"><a href="../../sale/goods/"> 所有货物</a></div>
+        <div class="food-link"><a href="../../sale/addgoods"> 添加商品</a></div>
+        <div class="clothes-link"><a href="../../sale/all/"> 全部订单</a></div>
+      </div>
+      <div class="logout"><a href="../../index/delete/"> 退出登录</a></div>
+    </div>
+    <!-- 所有商品陈列 -->
+    <div class="good-container">
+      {% for good in goods %}
+      <div class="good-card">
+        <div class="good-edit">
+          <div class="good-update"><a href="/sale/updata/{{good.id}}">更新</a></div>
+          <div class="good-delete"><a href="/sale/delete/{{good.id}}">删除</a></div>
+        </div>
+        <div class="good-img"><img src = "/static/product_images/{{good.img}}" alt="" /></div>
+        <div class="good-name"><p>{{good.name}}</p></div>
+        <div class="good-sort"><p>商品类别：{{good.kinds}}</p></div>
+        <div class="good-price"><p>定价￥：{{good.price}}</p></div>
+        <div class="create-time"><p>创建时间：{{good.create_time}}</p></div>
+        <div class="update-time"><p>更新时间：{{good.edit_time}}</p></div>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

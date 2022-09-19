@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update | 更新</title>
+    <link rel="stylesheet" href="/static/CSS/update.css">
+    <link rel="stylesheet" href="/static/CSS/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+    <form action="/sale/updata/{{good.id}}" method="post" >
+    <div class="add-container">
+        <div class="title">请在下方更新您的商品信息</div>
+      <div class="good-name">
+        <p>商品名称</p>
+        <textarea type="text" name="name" disabled>{{good.name}}</textarea>
+      </div>
+      <div class="good-sort">
+        <p>商品分类</p>
+        <textarea type="text" name="name" disabled>{{good.kinds}}</textarea>
+      </div>
+      <div class="good-price">
+        <p>商品定价</p>
+        <textarea type="text" name="price">{{good.price}}</textarea>
+      </div>
+      <div class="good-discribe">
+        <p>商品描述</p>
+        <textarea type="text" name="desc">{{good.discribe}}</textarea>
+      </div>
+        <div class="button">
+          <div class="upload">
+            <input type="submit" value="更新信息" />
+          </div>
+          <div class="goback">
+            <a href="/sale/goods/">返回仓库</a>
+          </div>
+        </div>
+    </div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addgoods</title>
+</head>
+<body>
+    <form action="../../sale/addgoods/" method="post" enctype="multipart/form-data">
+        <p>
+            商品名<input type="text" name="name" value="{{ good.name }}" >
+        </p>
+        <p>
+            分类
+            <input type="radio" name="kinds" value="食物">食物<br>
+            <input type="radio" name="kinds" value="服装">服装<br>
+            <input type="radio" name="kinds" value="数码">数码
+        </p>
+        <p>
+            <img src="" alt="">
+            商品图片<input type="file" name="img"  >
+        </p>
+        <p>
+            定价<input type="text" name="price" value="{{ good.price}}" >
+        </p>
+        <p>
+        <input type="checkbox" name="remember"><label>充值上首页推荐？</label>
+        </p>
+        <p>
+            描述<input type="text" name="desc" value="{{ good.discribe }}" >
+        </p>
+        <p>
+            <input type="submit" value="添加" >
+        </p>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,371 @@
+* {
+  padding: 0;
+  margin: 0;
+  /* 主题色 */
+  --main-color: rgb(180, 31, 31);
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(248, 248, 248);
+}
+p {
+  font-size: 25px;
+  font-weight: 600;
+  color: black;
+}
+.navbar-container {
+  /* 顶端固定 */
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  /* background-color: var(--main-color); */
+  background-color: transparent;
+  backdrop-filter: blur(100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-container.boxshadow {
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+.navbar-container .welcome-user {
+  position: absolute;
+  left: 50px;
+  font-size: 20px;
+}
+.navbar-container .navbar-link {
+  /* flex: 5; */
+  display: flex;
+  width: 50%;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+}
+.navbar-container .navbar-link div {
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: transparent;
+}
+.navbar-container .navbar-link div a {
+  line-height: 40px;
+  text-align: center;
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 600;
+  color: black;
+  transition: 0.3s;
+}
+.navbar-container .navbar-link div a:hover {
+  text-shadow: 1px 1px 4px rgba(243, 139, 139, 0.8);
+}
+.navbar-link a::before {
+  color: var(--main-color);
+}
+.navbar-link .rec-link a::before {
+  font-family: FontAwesome;
+  content: "\f290";
+}
+.navbar-link .food-link a::before {
+  font-family: FontAwesome;
+  content: "\f217";
+}
+.navbar-link .clothes-link a::before {
+  font-family: FontAwesome;
+  content: "\f022";
+}
+.navbar-container .logout {
+  position: absolute;
+  right: 100px;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+.navbar-container .logout a {
+  text-decoration: none;
+  color: black;
+}
+.navbar-container .logout a::before {
+  font-family: FontAwesome;
+  content: "\f204";
+}
+.navbar-container .logout:hover {
+  box-shadow: 1px 1px 10px rgba(206, 45, 45, 0.5);
+}
+.navbar-container .logout:hover a {
+  color: var(--main-color);
+}
+.navbar-container .logout a:hover::before {
+  font-family: FontAwesome;
+  content: "\f205";
+}
+.add-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 600px;
+  position: relative;
+  border-left: 5px dashed var(--main-color);
+  border-right: 5px dashed var(--main-color);
+  background-color: rgba(249, 115, 115, 0.2);
+}
+.good-name {
+  width: 80%;
+  position: relative;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.good-name p::before {
+  font-family: FontAwesome;
+  content: "\f035";
+  margin-right: 10px;
+  color: var(--main-color);
+}
+.good-name textarea {
+  border: none;
+  resize: none;
+  width: 60%;
+  height: 30px;
+  padding: 5px;
+  font-size: 25px;
+  margin-top: 10px;
+  /* 去除聚焦边框 */
+  outline: none;
+  border-radius: 5px;
+  background: #f8d3d3;
+  box-shadow: inset 5px 5px 3px #d5b5b5, inset -5px -5px 3px #fff1f1;
+}
+.good-sort {
+  width: 80%;
+  position: relative;
+  margin-top: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.good-sort p {
+  margin-top: 30px;
+}
+.good-sort p::before {
+  font-family: FontAwesome;
+  content: "\f00a";
+  margin-right: 10px;
+  color: var(--main-color);
+}
+.sort-container {
+  width: 60%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+/* 修改radio样式，首先把原始的radio隐藏起来 */
+input[type="radio"] {
+  visibility: hidden;
+}
+/* 未选中 */
+input[type="radio"]::after {
+  font-family: FontAwesome;
+  content: "\f096";
+  display: block;
+  visibility: visible;
+  font-size: 18px;
+  color: var(--main-color);
+  font-weight: 600;
+}
+/* 选中 */
+input[type="radio"]:checked::after {
+  font-family: FontAwesome;
+  content: "\f046";
+  display: block;
+  visibility: visible;
+  font-size: 18px;
+  color: var(--main-color);
+  font-weight: 600;
+}
+.sort-container span {
+  font-size: 20px;
+  font-weight: 600;
+}
+.good-img {
+  width: 80%;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.good-img p::before {
+  font-family: FontAwesome;
+  content: "\f1c5";
+  margin-right: 10px;
+  color: var(--main-color);
+}
+.good-img input {
+  font-size: 15px;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+.good-img input::before {
+  content: "";
+  width: 80px;
+  height: 30px;
+  background-color: rgb(248, 221, 221);
+  position: absolute;
+  z-index: 500;
+}
+.good-img input::after {
+  content: "选择图片";
+  position: absolute;
+  z-index: 999;
+  background-color: seagreen;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  top: 52px;
+  left: 98px;
+  border-radius: 5px;
+  color: rgb(248, 248, 248);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4),
+    inset 1px 1px 3px rgba(248, 248, 248, 0.5);
+}
+.good-price {
+  width: 80%;
+  position: relative;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.good-price p::before {
+  font-family: FontAwesome;
+  content: "\f157";
+  margin-right: 10px;
+  color: var(--main-color);
+}
+.good-price textarea {
+  border: none;
+  resize: none;
+  width: 60%;
+  height: 30px;
+  padding: 5px;
+  font-size: 25px;
+  margin-top: 10px;
+  /* 去除聚焦边框 */
+  outline: none;
+  border-radius: 5px;
+  background: #f8d3d3;
+  box-shadow: inset 5px 5px 3px #d5b5b5, inset -5px -5px 3px #fff1f1;
+}
+.good-discribe {
+  width: 80%;
+  position: relative;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.good-discribe p::before {
+  font-family: FontAwesome;
+  content: "\f10d";
+  margin-right: 10px;
+  color: var(--main-color);
+}
+.good-discribe textarea {
+  border: none;
+  resize: none;
+  width: 60%;
+  height: 60px;
+  padding: 5px;
+  font-size: 25px;
+  margin-top: 10px;
+  /* 去除聚焦边框 */
+  outline: none;
+  border-radius: 5px;
+  background: #f8d3d3;
+  box-shadow: inset 5px 5px 3px #d5b5b5, inset -5px -5px 3px #fff1f1;
+}
+.good-rec {
+  width: 40%;
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.good-rec span {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+}
+input[type="checkbox"] {
+  visibility: hidden;
+}
+/* 未选中 */
+input[type="checkbox"]::after {
+  font-family: FontAwesome;
+  content: "\f096";
+  display: block;
+  visibility: visible;
+  font-size: 25px;
+  margin: -5px;
+  color: var(--main-color);
+  font-weight: 600;
+}
+input[type="checkbox"]:checked::after {
+  font-family: FontAwesome;
+  content: "\f046";
+  display: block;
+  visibility: visible;
+  font-size: 25px;
+  margin: -5px;
+  color: var(--main-color);
+  font-weight: 600;
+}
+.upload {
+  width: 80%;
+  position: relative;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.upload input {
+  padding: 5px 10px 5px 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: seagreen;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 5px;
+  color: rgb(248, 248, 248);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4),
+    inset 1px 1px 3px rgba(248, 248, 248, 0.5);
+    transition: 0.5s;
+}
+.upload input:hover{
+    transform: scale(1.1);
+}

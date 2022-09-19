@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美食</title>
+</head>
+<h1>美食</h1>
+<a href="../../market/recommend">推荐</a>
+<a href="../../market/food">美食</a>
+<a href="../../market/cloths">服装</a>
+<a href="../../market/eproduct">数码</a>
+<a href="../../market/cart">购物车</a>
+<body>
+    <table border="1">
+        <tr>
+             <th>编号</th>
+             <th>商品名</th>
+             <th>商品图片</th>
+            
+             <th>分类</th>
+             <th>描述</th>
+             <th>定价</th>
+             
+        </tr>
+        {% for good in goods %}
+        <tr>
+         <td>{{good.id }}</td>
+         <td>{{good.name }}</td> 
+         <td>
+                <img style="height: 50px;width: 50px;" src = "/static/product_images/{{good.img}}">
+            </td>
+         <td>{{good.kinds }}</td>
+         <td>{{good.discribe }}</td>
+         <td>{{good.price }}</td>
+         
+
+         <td>
+             <a href="/market/goodsdetail/{{good.id}}">查看详情</a>
+         </td>
+        </tr>
+ 
+        {% endfor %}
+ 
+    </table>
+    <div>
+        <a href="../../index/delete/">退出登陆</a>
+    </div>
+    
+</body>
+</html>
